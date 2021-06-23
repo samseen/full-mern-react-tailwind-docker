@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+import { Button } from "../../components/button";
 
 import McLarenCarImg from '../../../assets/images/mclaren-orange-big.png';
 import BlobImg from '../../../assets/images/blob.svg';
@@ -141,6 +142,13 @@ const StandaloneCar = styled.div`
     }
 `;
 
+const ButtonsContainer = styled.div`
+    ${tw`
+        flex
+        mt-4
+    `};
+`;
+
 export function TopSection() {
     return <TopSectionContainer>
         <LeftContainer>
@@ -149,6 +157,10 @@ export function TopSection() {
                 Always choose the best car from our local stores or order it remotely 
                 at the best price and get the best quality cars for as long as you like
             </Description>
+            <ButtonsContainer>
+                <Button text="Book Your Ride " />
+                <Button theme="filled" text="Sell Your Car" />
+            </ButtonsContainer>
         </LeftContainer>
         <RightContainer>
             <BlobContainer>
