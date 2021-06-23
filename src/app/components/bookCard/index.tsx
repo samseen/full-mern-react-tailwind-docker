@@ -3,9 +3,13 @@ import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
+import { Button } from "../button";
+import { Marginer } from "../marginer";
 
 
 const CardContainer = styled.div`
+    min-height: 4.3em;
+    box-shadow: 0 1.3px 12px -3px rgba(0, 0, 0, 0.4);
     ${tw`
         flex
         justify-center
@@ -18,8 +22,8 @@ const CardContainer = styled.div`
         pl-2
         md:pt-2
         md:pb-2
-        md:pl-6
-        md:pr-6
+        md:pl-7
+        md:pr-8
     `};
 `;
 
@@ -73,6 +77,7 @@ export function BookCard() {
             </Icon>
             <Name>Return Date</Name>
         </ItemContainer>
-        <
+        <Marginer direction="horizontal" margin="2em" />
+        <Button text="Book Your Ride" />
     </CardContainer>
 }
