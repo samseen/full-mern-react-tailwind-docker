@@ -5,10 +5,12 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { Button } from "../button";
 import { Marginer } from "../marginer";
+import { css } from "styled-components";
 
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { SCREENS } from "../responsive";
 
 const CardContainer = styled.div`
     min-height: 4.3em;
@@ -47,7 +49,7 @@ const Icon = styled.span`
 
 const SmallIcon = styled.span`
     ${tw`
-        text-gray-700
+        text-gray-500
         fill-current
         text-xs
         md:text-base
@@ -61,6 +63,7 @@ const Name = styled.span`
         text-xs
         md:text-sm
         cursor-pointer
+        select-none
     `};
 `;
 
@@ -79,9 +82,19 @@ const LineSeparator = styled.span`
 const DateCalendar = styled(Calendar)`
     position: absolute;
     max-width: none;
-    top: 3.5em;
-    left: -2em;
-`;
+    user-select: none;
+    top: 2em;
+    left: 0em;
+
+    ${({ offset }: any) => offset && css`
+        left: -6em
+    `};
+
+    @media (min-width: ${SCREENS.md}) {
+        top: 3.5em;
+        left: -2em;
+    }
+` as any;
 
 export function BookCard() {
     const [startDate, setStartDate] = useState<Date>(new Date());
@@ -89,8 +102,6 @@ export function BookCard() {
     
     const [returnDate, setReturnDate] = useState<Date>(new Date());
     const [isReturnCalendarOpen, setReturnCalendarOpen] = useState(false);
-
-    console.log("Value: ", startDate);
     
     const toggleStartDateCalendar = () => {
         setStartCalendarOpen(!isStartCalendarOpen);
@@ -122,7 +133,10 @@ export function BookCard() {
             <SmallIcon>
                 <FontAwesomeIcon icon={isReturnCalendarOpen ? faCaretUp : faCaretDown} />
             </SmallIcon>
-            {isReturnCalendarOpen && <DateCalendar value={returnDate} onChange={setReturnDate as any} />}
+            {isReturnCalendarOpen && 
+                <DateCalendar 
+                offset
+                value={returnDate} onChange={setReturnDate as any} />}
         </ItemContainer>
         <Marginer direction="horizontal" margin="2em" />
         <Button text="Book Your Ride" />
