@@ -21,7 +21,7 @@ const Container = styled.div`
 const Title = styled.h2`
     ${tw`
         text-xl
-        lg:text-4xl
+        lg:text-5xl
         text-black
         font-extrabold
     `};
@@ -41,11 +41,11 @@ const StepContainer = styled.div`
     ${tw`
         flex
         flex-col
-        w-16
         md:w-96
         items-center
         transition-colors
         hover:text-red-500
+        m-3
     `};
 `;
 
