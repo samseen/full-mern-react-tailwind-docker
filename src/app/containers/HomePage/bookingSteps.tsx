@@ -50,6 +50,7 @@ const StepContainer = styled.div`
 `;
 
 const Step = styled.div`
+    box-shadow: 0 1.3px 12px -4px rgba(0, 0, 0, 0.4);
     ${tw`
         flex
         rounded-lg
