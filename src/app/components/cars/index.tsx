@@ -27,6 +27,35 @@ const CarContainer = styled.div`
     `};
 `;
 
+const CarThumbnail = styled.div`
+    width: 100%;
+    height: auto;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+`;
+
+const CarName = styled.h3`
+    ${tw`
+        text-base
+        font-bold
+        text-black
+        mt-1
+        mb-1
+    `};
+`;
+
+const PricesContainer = styled.div`
+    ${tw`
+        w-full
+        flex
+        justify-start
+        mt-3
+    `};
+`;
+
 export function Car(props: ICarProps) {
 
 }
