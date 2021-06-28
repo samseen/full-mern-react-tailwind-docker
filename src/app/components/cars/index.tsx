@@ -56,6 +56,14 @@ const PricesContainer = styled.div`
     `};
 `;
 
+const DailyPrice = styled.h5`
+    ${tw`
+        text-red-500
+        font-bold
+        text-sm
+    `};
+`;
+
 export function Car(props: ICarProps) {
 
 }
