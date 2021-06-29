@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { ICar } from "../../../typings/car";
 import tw from 'twin.macro';
+import { Button } from "../button";
 
 interface ICarProps extends ICar {
 
@@ -79,6 +80,42 @@ const SmallIcon = styled.span`
         text-sm
         mr-1
     `};
+`;
+
+const CarDetailsContainer = styled.div`
+    ${tw`
+        flex
+        w-full
+        justify-between
+    `};
+`;
+
+const CarDetail = styled.span`
+    ${tw`
+        flex
+        items-center
+    `};
+`;
+
+const CarInfo = styled.h6`
+    ${tw`
+        text-gray-400
+        text-xs
+    `};
+`;
+
+const Separator = styled.div`
+    min-width: 100%;
+    min-height: 1px;
+    ${tw`
+        bg-gray-300
+        mt-2
+        mb-2
+    `};
+`;
+
+const RentButton = styled(Button)`
+
 `;
 
 export function Car(props: ICarProps) {
