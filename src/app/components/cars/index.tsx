@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { ICar } from "../../../typings/car";
 import tw from 'twin.macro';
 import { Button } from "../button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisH, faFillDrip, faTachometerAlt } from "@fortawesome/free-solid-svg-icons";
 
 interface ICarProps extends ICar {
 
@@ -57,6 +59,14 @@ const PricesContainer = styled.div`
     `};
 `;
 
+const SmallTxt = styled.p`
+    color: inherit;
+    ${tw`
+        text-xs
+        font-thin
+    `};
+`;
+
 const DailyPrice = styled.h5`
     ${tw`
         text-red-500
@@ -108,6 +118,7 @@ const Separator = styled.div`
     min-width: 100%;
     min-height: 1px;
     ${tw`
+        flex
         bg-gray-300
         mt-2
         mb-2
@@ -115,9 +126,46 @@ const Separator = styled.div`
 `;
 
 const RentButton = styled(Button)`
-
+    ${tw`
+        min-w-full
+        mt-5
+    `};
 `;
 
 export function Car(props: ICarProps) {
+    const { name, thumbnailSrc, dailyPrice, monthlyPrice, mileage, gearType, gas } = props;
 
+    return <CarContainer>
+        <CarThumbnail>
+            <img src={thumbnailSrc} />
+        </CarThumbnail>
+        <CarName>{ name }</CarName>
+        <PricesContainer>
+            <DailyPrice>${ dailyPrice }<SmallTxt>/Day</SmallTxt></DailyPrice>
+            <MonthlyPrice>${ monthlyPrice }<SmallTxt>/Month</SmallTxt></MonthlyPrice>
+        </PricesContainer>
+        <Separator>
+            <CarDetailsContainer>
+                <CarDetail>
+                    <SmallIcon>
+                        <FontAwesomeIcon icon={faTachometerAlt} />
+                    </SmallIcon>
+                    <CarInfo>{ mileage }</CarInfo>
+                </CarDetail>
+                <CarDetail>
+                    <SmallIcon>
+                        <FontAwesomeIcon icon={faEllipsisH} />
+                    </SmallIcon>
+                    <CarInfo>{ gearType }</CarInfo>
+                </CarDetail>
+                <CarDetail>
+                    <SmallIcon>
+                        <FontAwesomeIcon icon={faFillDrip} />
+                    </SmallIcon>
+                    <CarInfo>{ gas }</CarInfo>
+                </CarDetail>
+            </CarDetailsContainer>
+            <RentButton text="Rent Now" />
+        </Separator>
+    </CarContainer>
 }
