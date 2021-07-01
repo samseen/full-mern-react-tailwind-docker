@@ -69,12 +69,24 @@ export function TopCars() {
     return <TopCarsContainer>
         <Title>Export Our Top Deals</Title>
         <CarsContainer>
-            <Carousel value={current} onChange={setCurrent} slides={[ 
+            <Carousel value={current} 
+            onChange={setCurrent} 
+            slides={[ 
                 (<Car {...testCar2} />), 
                 (<Car {...testCar} />), 
                 (<Car {...testCar2} />), 
                 (<Car {...testCar} />), 
-                (<Car {...testCar2} />) ]}
+                (<Car {...testCar2} />) 
+            ]}
+            plugins={[
+                "clickToChange",
+                {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                        numberOfSlides: 3,
+                    }
+                }
+            ]}
             />
             <Dots value={current} onChange={setCurrent} number={2} />
         </CarsContainer>
