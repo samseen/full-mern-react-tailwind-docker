@@ -8,10 +8,21 @@ const FooterContainer = styled.div`
     background-color: rgba(31 42 76);
     ${tw`
         flex
-        flex-wrap
         min-w-full
         pt-7
         pb-1
+        items-center
+        justify-center
+    `};
+`;
+
+const InnerContainer = styled.div`
+    ${tw`
+        flex
+        flex-col
+        w-full
+        h-full
+        max-w-screen-2xl
     `};
 `;
 
@@ -24,8 +35,10 @@ const AboutContainer = styled.div`
 
 export function Footer() {
     return <FooterContainer>
-        <AboutContainer>
-            <Logo color="white" bgColor="dark" />
-        </AboutContainer>
+        <InnerContainer>
+            <AboutContainer>
+                <Logo color="white" bgColor="dark" />
+            </AboutContainer>
+        </InnerContainer>
     </FooterContainer>
 }
