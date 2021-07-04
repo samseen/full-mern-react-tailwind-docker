@@ -9,7 +9,8 @@ const FooterContainer = styled.div`
     ${tw`
         flex
         min-w-full
-        pt-7
+        pt-4
+        md:pt-12
         pb-1
         items-center
         justify-center
