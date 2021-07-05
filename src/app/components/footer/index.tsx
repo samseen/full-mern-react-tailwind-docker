@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Logo } from '../logo';
 
 const FooterContainer = styled.div`
-    min-height: 30em;
+    min-height: 24em;
     background-color: rgba(31 42 76);
     ${tw`
         flex
