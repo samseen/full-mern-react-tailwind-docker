@@ -34,11 +34,23 @@ const AboutContainer = styled.div`
     `};
 `;
 
+const AboutText = styled.p`
+    ${tw`
+        text-white
+        text-sm
+        font-normal
+        max-w-xs
+        leading-5
+        mt-2
+    `};
+`;
+
 export function Footer() {
     return <FooterContainer>
         <InnerContainer>
             <AboutContainer>
                 <Logo color="white" bgColor="dark" />
+                <AboutText>Yourcar is a Car renting and selling company located in many countries across the world which has high quality cars and top rated service.</AboutText>
             </AboutContainer>
         </InnerContainer>
     </FooterContainer>
