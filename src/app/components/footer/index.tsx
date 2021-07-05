@@ -20,7 +20,6 @@ const FooterContainer = styled.div`
 const InnerContainer = styled.div`
     ${tw`
         flex
-        flex-col
         w-full
         h-full
         max-w-screen-2xl
@@ -31,6 +30,8 @@ const AboutContainer = styled.div`
     ${tw`
         flex
         flex-col
+        mr-2
+        md:mr-12
     `};
 `;
 
@@ -45,6 +46,45 @@ const AboutText = styled.p`
     `};
 `;
 
+const SectionContainer = styled.div`
+    ${tw`
+        flex
+        flex-col
+        mr-3
+    `};
+`;
+
+const LinksList = styled.ul`
+    ${tw`
+        outline-none
+        list-none
+        flex
+        flex-col
+    `};
+`;
+
+const ListItem = styled.li`
+    ${tw`
+        mb-3
+    `};
+
+    & > a {
+        ${tw`
+            text-sm
+            text-white
+        `};
+    }
+`;
+
+const HeaderTitle = styled.h3`
+    ${tw`
+        text-base
+        font-bold
+        text-white
+        mb-3
+    `};
+`;
+
 export function Footer() {
     return <FooterContainer>
         <InnerContainer>
@@ -52,6 +92,16 @@ export function Footer() {
                 <Logo color="white" bgColor="dark" />
                 <AboutText>Yourcar is a Car renting and selling company located in many countries across the world which has high quality cars and top rated service.</AboutText>
             </AboutContainer>
+            <SectionContainer>
+                <HeaderTitle>Our Links</HeaderTitle>
+                <LinksList>
+                    <ListItem><a href="#">Home</a></ListItem>
+                    <ListItem><a href="#">About Us</a></ListItem>
+                    <ListItem><a href="#">Services</a></ListItem>
+                    <ListItem><a href="#">Models</a></ListItem>
+                    <ListItem><a href="#">Blog</a></ListItem>
+                </LinksList>
+            </SectionContainer>
         </InnerContainer>
     </FooterContainer>
 }
