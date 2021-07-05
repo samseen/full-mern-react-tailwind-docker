@@ -31,7 +31,7 @@ const AboutContainer = styled.div`
         flex
         flex-col
         mr-2
-        md:mr-12
+        md:mr-16
     `};
 `;
 
@@ -51,6 +51,8 @@ const SectionContainer = styled.div`
         flex
         flex-col
         mr-3
+        mr-2
+        md:mr-16
     `};
 `;
 
@@ -70,15 +72,17 @@ const ListItem = styled.li`
 
     & > a {
         ${tw`
-            text-sm
+            text-xs
             text-white
+            transition-all
+            hover:text-gray-400
         `};
     }
 `;
 
 const HeaderTitle = styled.h3`
     ${tw`
-        text-base
+        text-2xl
         font-bold
         text-white
         mb-3
@@ -100,6 +104,16 @@ export function Footer() {
                     <ListItem><a href="#">Services</a></ListItem>
                     <ListItem><a href="#">Models</a></ListItem>
                     <ListItem><a href="#">Blog</a></ListItem>
+                </LinksList>
+            </SectionContainer>
+            <SectionContainer>
+                <HeaderTitle>Other Links</HeaderTitle>
+                <LinksList>
+                    <ListItem><a href="#">FAQ</a></ListItem>
+                    <ListItem><a href="#">Contact Us</a></ListItem>
+                    <ListItem><a href="#">Support</a></ListItem>
+                    <ListItem><a href="#">Privacy Policy</a></ListItem>
+                    <ListItem><a href="#">Terms &amp; Conditions</a></ListItem>
                 </LinksList>
             </SectionContainer>
         </InnerContainer>
