@@ -2,6 +2,8 @@ import React from 'react'
 import tw from 'twin.macro';
 import styled from 'styled-components';
 import { Logo } from '../logo';
+import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FooterContainer = styled.div`
     min-height: 24em;
@@ -89,6 +91,26 @@ const HeaderTitle = styled.h3`
     `};
 `;
 
+const HorizontalContainer = styled.div`
+    ${tw`
+        flex
+    `};
+`;
+
+const RedIcon = styled.span`
+    ${tw`
+        w-5
+        h-5
+        rounded-full
+        flex
+        items-center
+        justify-center
+        text-white
+        text-base
+        mr-2
+    `};
+`;
+
 export function Footer() {
     return <FooterContainer>
         <InnerContainer>
@@ -115,6 +137,14 @@ export function Footer() {
                     <ListItem><a href="#">Privacy Policy</a></ListItem>
                     <ListItem><a href="#">Terms &amp; Conditions</a></ListItem>
                 </LinksList>
+            </SectionContainer>
+            <SectionContainer>
+                <HeaderTitle>Call Now</HeaderTitle>
+                <HorizontalContainer>
+                    <RedIcon>
+                        <FontAwesomeIcon icon={faPhoneAlt}
+                    </RedIcon>
+                </HorizontalContainer>
             </SectionContainer>
         </InnerContainer>
     </FooterContainer>
