@@ -94,20 +94,29 @@ const HeaderTitle = styled.h3`
 const HorizontalContainer = styled.div`
     ${tw`
         flex
+        items-center
     `};
 `;
 
 const RedIcon = styled.span`
     ${tw`
-        w-5
-        h-5
+        w-8
+        h-8
         rounded-full
+        bg-red-500
         flex
         items-center
         justify-center
         text-white
         text-base
         mr-2
+    `};
+`;
+
+const SmallText = styled.h6`
+    ${tw`
+        text-sm
+        text-white
     `};
 `;
 
@@ -142,8 +151,9 @@ export function Footer() {
                 <HeaderTitle>Call Now</HeaderTitle>
                 <HorizontalContainer>
                     <RedIcon>
-                        <FontAwesomeIcon icon={faPhoneAlt}
+                        <FontAwesomeIcon icon={faPhoneAlt} />
                     </RedIcon>
+                    <SmallText>+234 909 992 3445</SmallText>
                 </HorizontalContainer>
             </SectionContainer>
         </InnerContainer>
