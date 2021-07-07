@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const FooterContainer = styled.div`
-    min-height: 24em;
+    /* min-height: 24em; */
     background-color: rgba(31 42 76);
     ${tw`
         flex
         min-w-full
-        pt-4
-        md:pt-12
+        pt-10
+        md:pt-16
         pb-1
         items-center
         justify-center
@@ -23,9 +23,11 @@ const FooterContainer = styled.div`
 const InnerContainer = styled.div`
     ${tw`
         flex
+        flex-wrap
         w-full
         h-full
         max-w-screen-2xl
+        justify-center
     `};
 `;
 
@@ -35,6 +37,10 @@ const AboutContainer = styled.div`
         flex-col
         mr-2
         md:mr-16
+        pl-12
+        pr-12
+        md:pl-4
+        md:pr-4
     `};
 `;
 
@@ -51,11 +57,18 @@ const AboutText = styled.p`
 
 const SectionContainer = styled.div`
     ${tw`
+        w-full
+        md:w-auto
         flex
         flex-col
-        mr-3
         mr-2
         md:mr-16
+        pl-12
+        pr-12
+        md:pl-4
+        md:pr-4
+        mt-8
+        md:mt-0
     `};
 `;
 
