@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Logo } from '../logo';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 const FooterContainer = styled.div`
     min-height: 24em;
@@ -154,6 +155,15 @@ export function Footer() {
                         <FontAwesomeIcon icon={faPhoneAlt} />
                     </RedIcon>
                     <SmallText>+234 909 992 3445</SmallText>
+                </HorizontalContainer>
+            </SectionContainer>
+            <SectionContainer>
+                <HeaderTitle>Email</HeaderTitle>
+                <HorizontalContainer>
+                    <RedIcon>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </RedIcon>
+                    <SmallText>info@yourcar.com</SmallText>
                 </HorizontalContainer>
             </SectionContainer>
         </InnerContainer>
