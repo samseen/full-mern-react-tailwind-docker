@@ -9,7 +9,7 @@ class CarService {
             throw err;
         });
 
-        if(response && response.data) {
+        if(response && response.data && response.data.cars) {
             return response.data as GetCars_cars[];
         }
 
