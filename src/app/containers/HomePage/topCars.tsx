@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 import { ICar } from '../../../typings/car';
-import { Car } from '../../components/cars';
+import { Car } from '../../components/car';
 import Carousel, { Dots, slidesToShowPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { useMediaQuery } from 'react-responsive';
@@ -11,7 +11,9 @@ import carService from '../../services/carService';
 import { GetCars_cars } from '../../services/carService/-watch/GetCars';
 import { setTopCars } from './slice';
 import { Dispatch } from "redux";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { createSelector } from 'reselect';
+import { makeSelectTopCars } from './selectors';
 
 const TopCarsContainer = styled.div`
     ${tw`
@@ -53,10 +55,16 @@ const actionDispatch = (dispatch: Dispatch) => ({
     setTopCars: (cars: GetCars_cars[]) => dispatch(setTopCars(cars)),
 });
 
+const stateSelector = createSelector(makeSelectTopCars, (topCars) => ({
+    topCars
+}));
+
 export function TopCars() {
     const [current, setCurrent] = useState(0);
 
     const isMobile = useMediaQuery({ maxWidth: SCREENS.sm })
+
+    const { topCars } = useSelector(stateSelector);
 
     const { setTopCars } = actionDispatch(useDispatch());
 
@@ -66,6 +74,7 @@ export function TopCars() {
         });
 
         console.log("Cars: ", cars);
+        
         if(cars) {
             setTopCars(cars);
         }
@@ -96,6 +105,15 @@ export function TopCars() {
         fetchTopCars();
     }, []);
 
+    const isEmptyTopCars = !topCars || topCars.length === 0;
+    console.log("Top Cars: "+ topCars);
+
+    // const carss = (!isEmptyTopCars && topCars.map((car) => <Car {...car} thumbnailSrc={car.thumbnailUrl} />)) || [];
+
+    // const cars = !isEmptyTopCars && topCars.map((car) => <Car {...car} thumbnailSrc={car.thumbnailUrl} />) || [];
+
+    console.log("Is Empty Top Cars: "+ isEmptyTopCars);
+
     const cars = [
         (<Car {...testCar2} />), 
         (<Car {...testCar} />), 
@@ -105,6 +123,8 @@ export function TopCars() {
     ];
 
     const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length / 3);
+
+    if (isEmptyTopCars) return null;
 
     return <TopCarsContainer>
         <Title>Export Our Top Deals</Title>
